@@ -11,8 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->id();
+        Schema::create('flights', function (Blueprint $table) {
+            $table->id('flight_id');
+            $table->date('date');
+            $table->foreignId('airline_id')->references('airline_id')->on('airlines');
+            $table->integer('limit');
             $table->timestamps();
         });
     }
@@ -22,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('flights');
     }
 };

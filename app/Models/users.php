@@ -9,4 +9,13 @@ class users extends Model
 {
     /** @use HasFactory<\Database\Factories\UsersFactory> */
     use HasFactory;
+
+    protected $primaryKey = 'id';
+
+    protected $fillable = [
+        'id',
+        'name',
+        'email',
+        'password',
+    ];
 }
